@@ -24,8 +24,10 @@ based on the events that it listens too (e.g. any mouse click).
 ```javascript
 // To search for an entry (whatever is unique for you)
 App.api.records('read', 'UXMetrics', {
-    email_addr: 'test@test.com',
-    type: 4
+    filter: [
+        {email_addr: 'test@test.com'},
+        {type: 4}
+    ]
 }, null, {
     success: function(data) {
         console.log(data);
@@ -53,7 +55,9 @@ App.api.records('create', 'UXMetrics', {
 
 // you can now check that the record was saved
 App.api.records('read', 'UXMetrics', {
-    email_addr: 'test@test.com'
+    filter: [{
+        email_addr: 'test@test.com'
+    }]
 }, null, {
     success: function(data) {
         console.log(data);
@@ -95,7 +99,9 @@ App.api.records('create', 'UXMetrics', {
 
 // you can now see the 3 records for that user
 App.api.records('read', 'UXMetrics', {
-    email_addr: 'test@test.com'
+    filter: [{
+        email_addr: 'test@test.com'
+    }]
 }, null, {
     success: function(data) {
         console.log(data);
@@ -107,8 +113,10 @@ App.api.records('read', 'UXMetrics', {
 
 // or you can see only for the test that you are looking for:
 App.api.records('read', 'UXMetrics', {
-    email_addr: 'test@test.com',
-    type: 3
+    filter: [
+        {email_addr: 'test@test.com'},
+        {type: 3}
+    ]
 }, null, {
     success: function(data) {
         console.log(data);
