@@ -23,12 +23,12 @@ based on the events that it listens too (e.g. any mouse click).
 
 ```javascript
 // To search for an entry (whatever is unique for you)
-App.api.records('read', 'UXMetrics', {
+App.api.records('read', 'UXMetrics', null, {
     filter: [
         {email_addr: 'test@test.com'},
         {type: 4}
     ]
-}, null, {
+}, {
     success: function(data) {
         console.log(data);
     },
@@ -38,13 +38,13 @@ App.api.records('read', 'UXMetrics', {
 });
 
 // To create records at will :)
-App.api.records('create', 'UXMetrics', {
+App.api.records('create', 'UXMetrics', null, {
     email_addr: 'test@test.com',
     name: 'Vlad K',
     type: 4,
     clicks: 5,
     time: 45.32
-}, null, {
+}, {
     success: function(data) {
         console.log(data);
     },
@@ -54,11 +54,11 @@ App.api.records('create', 'UXMetrics', {
 });
 
 // you can now check that the record was saved
-App.api.records('read', 'UXMetrics', {
+App.api.records('read', 'UXMetrics', null, {
     filter: [{
         email_addr: 'test@test.com'
     }]
-}, null, {
+}, {
     success: function(data) {
         console.log(data);
     },
@@ -68,13 +68,13 @@ App.api.records('read', 'UXMetrics', {
 });
 
 // now imagine that you create 2 other records
-App.api.records('create', 'UXMetrics', {
+App.api.records('create', 'UXMetrics', null, {
     email_addr: 'test@test.com',
     name: 'Vlad K',
     type: 2,
     clicks: 5,
     time: 45.32
-}, null, {
+}, {
     success: function(data) {
         console.log(data);
     },
@@ -82,13 +82,13 @@ App.api.records('create', 'UXMetrics', {
         // see if you want to do something here...
     }
 });
-App.api.records('create', 'UXMetrics', {
+App.api.records('create', 'UXMetrics', null, {
     email_addr: 'test@test.com',
     name: 'Vlad K',
     type: 3,
     clicks: 5,
     time: 45.32
-}, null, {
+}, {
     success: function(data) {
         console.log(data);
     },
@@ -98,11 +98,11 @@ App.api.records('create', 'UXMetrics', {
 });
 
 // you can now see the 3 records for that user
-App.api.records('read', 'UXMetrics', {
+App.api.records('read', 'UXMetrics', null, {
     filter: [{
         email_addr: 'test@test.com'
     }]
-}, null, {
+}, {
     success: function(data) {
         console.log(data);
     },
@@ -112,12 +112,12 @@ App.api.records('read', 'UXMetrics', {
 });
 
 // or you can see only for the test that you are looking for:
-App.api.records('read', 'UXMetrics', {
+App.api.records('read', 'UXMetrics', null, {
     filter: [
         {email_addr: 'test@test.com'},
         {type: 3}
     ]
-}, null, {
+}, {
     success: function(data) {
         console.log(data);
     },
